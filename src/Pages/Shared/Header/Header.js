@@ -30,6 +30,12 @@ const Header = () => {
                             <Nav.Link as={Link} to="inventory">
                                 Inventory
                             </Nav.Link>
+                            <Nav.Link as={Link} to="manage-inventories">
+                                Manage Inventories
+                            </Nav.Link>
+                            <Nav.Link as={Link} to="manage-items">
+                                Manage items
+                            </Nav.Link>
                             <Nav.Link as={Link} to="blogs">
                                 Blogs
                             </Nav.Link>

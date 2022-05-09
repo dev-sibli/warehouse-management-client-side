@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import auth from '../../../firebase.init';
-import Loading from '../../Shared/Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
@@ -15,10 +14,6 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
-    // if (loading) {
-    //     return <Loading></Loading>
-    // }
 
     let errorLog;
     if (error) {
@@ -59,7 +54,7 @@ const Register = () => {
                 </Button>
             </Form>
             {errorLog}
-            {/* {verification} */}
+
             <p>Already have an account?<Link to="/login" className='text-primary text-decoration-none py-auto' onClick={navigateLogin}> Please Login</Link></p>
             <ToastContainer />
             <SocialLogin></SocialLogin>
