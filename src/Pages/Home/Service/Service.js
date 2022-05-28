@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Service = ({ monitor }) => {
-    const { name, price, quantity, supplier } = monitor;
+const Service = ({ tv }) => {
+    const { _id, name, price, quantity, supplier } = tv;
+
+    const handleInventory = id => {
+        const proceed = window.confirm('Are you sure to delete?')
+        if (proceed) {
+            console.log(id);
+            const url = `http://localhost:5000/tv/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        console.log('deleted');
+
+                    }
+                })
+        }
+
+    }
+
     return (
         <>
             <tr>
@@ -10,7 +31,7 @@ const Service = ({ monitor }) => {
                 <td>{quantity}</td>
                 <td>{supplier}</td>
                 <td><>
-                    <button className='btn'>Edit</button>
+                    <button onClick={() => handleInventory(_id)} className='btn'>Delete</button>
                 </></td>
             </tr>
         </>
