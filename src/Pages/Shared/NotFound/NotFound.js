@@ -3,7 +3,7 @@ import notfound from '../../../images/notfound/404-not-found.jpg'
 const NotFound = () => {
     return (
         <div className='container'>
-            <img className='mx-auto w-100 my-2' src={notfound} alt="" />
+            <img className='mx-auto w-100g my-2' src={notfound} alt="" />
         </div>
     );
 };

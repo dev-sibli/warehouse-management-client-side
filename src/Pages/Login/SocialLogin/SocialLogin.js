@@ -29,9 +29,9 @@ const SocialLogin = () => {
     return (
         <div>
             {errorDetails}
-            <button onClick={() => signInWithGoogle()} className='btn btn-outline-dark w-100 d-block mx-auto '>
+            <button onClick={() => signInWithGoogle()} className='btn btn-outline-secondary w-100 mx-auto '>
                 <img src={google} alt="" />
-                <span>Sign in With Google</span></button>
+                <span> Sign in With Google</span></button>
         </div>
     );
 };

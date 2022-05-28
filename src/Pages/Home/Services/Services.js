@@ -2,18 +2,35 @@ import React, { useEffect, useState } from 'react';
 import Service from '../Service/Service';
 
 const Services = () => {
-    const [services, setServices] = useState([])
+    const [monitors, setMonitors] = useState([]);
+
     useEffect(() => {
-        const url = 'http://localhost:5000/tv'
-        fetch(url)
+        fetch('http://localhost:5000/tv')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setMonitors(data))
     }, [])
+
     return (
-        <div>
-            {
-                services.map(service => <Service service={service}></Service>)
-            }
+        <div className="overflow-x-auto">
+            <table className="table w-full">
+                <thead>
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Supplier</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        monitors.map(monitor => <Service
+                            key={monitor.key}
+                            monitor={monitor}></Service>)
+                    }
+                </tbody>
+            </table>
         </div>
     );
 };

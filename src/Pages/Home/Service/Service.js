@@ -1,11 +1,20 @@
 import React from 'react';
 
-const Service = (props) => {
-    console.log(props);
+const Service = ({ monitor }) => {
+    const { name, price, quantity, supplier } = monitor;
     return (
-        <div>
+        <>
+            <tr>
+                <td>{name}</td>
+                <td>{price}</td>
+                <td>{quantity}</td>
+                <td>{supplier}</td>
+                <td><>
+                    <button className='btn'>Edit</button>
+                </></td>
+            </tr>
+        </>
 
-        </div>
     );
 };
 

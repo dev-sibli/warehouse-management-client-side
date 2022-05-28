@@ -7,52 +7,43 @@ import auth from '../../../firebase.init';
 
 const Header = () => {
     const [user] = useAuthState(auth)
-    const handleSignOut = () => {
-        signOut(auth)
-    }
+
+    const headerItem =
+        <>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/blogs">Blogs</Link></li>
+            <li><Link to="/manageItems">Manage Items</Link></li>
+            <li><Link to="/addItem">Add Item</Link></li>
+            <li><Link to="/myItems">My items</Link></li>
+
+            {
+                user &&
+                <ul className='lg:flex'>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><p>{user?.displayName}</p></li>
+                </ul>
+            }
+            <li>{user ? <button onClick={() => signOut(auth)} className="btn btn-ghost" >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        </>
 
     return (
-        <div className='mb-4'>
-            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" sticky='top'>
-                <Container>
-                    <Navbar.Brand>
-                        <Nav.Link className='text-white' as={Link} to="/">
-                            TV Star
-                        </Nav.Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link as={Link} to="home">
-                                Home
-                            </Nav.Link>
-
-                            <Nav.Link as={Link} to="inventory">
-                                Inventory
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="manage-inventories">
-                                Manage Inventories
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="manage-items">
-                                Manage items
-                            </Nav.Link>
-                            <Nav.Link as={Link} to="blogs">
-                                Blogs
-                            </Nav.Link>
-
-                        </Nav>
-                        <Nav>
-                            {
-                                user ?
-                                    <button className='btn btn-link text-white text-decoration-none ' onClick={handleSignOut} >Sign out</button>
-                                    :
-                                    <Nav.Link as={Link} to="login">
-                                        Login
-                                    </Nav.Link>}
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+        <div className="navbar bg-cyan-500 mb-4">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex="0" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        {headerItem}
+                    </ul>
+                </div>
+                <Link className='btn btn-ghost normal-case text-xl ' to="/">Tv Star</Link>
+            </div>
+            <div className="navbar-end hidden lg:flex">
+                <ul className="menu menu-horizontal p-0">
+                    {headerItem}
+                </ul>
+            </div>
         </div>
     );
 };

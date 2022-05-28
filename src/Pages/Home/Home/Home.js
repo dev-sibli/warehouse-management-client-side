@@ -1,10 +1,12 @@
 import React from 'react';
-import Service from '../Service/Service';
+import AllMonitor from '../../Inventory/AllMonitor';
+import Banner from '../Banner';
 
 const Home = () => {
     return (
         <div>
-            <Service></Service>
+            <Banner></Banner>
+            <AllMonitor></AllMonitor>
         </div>
     );
 };
