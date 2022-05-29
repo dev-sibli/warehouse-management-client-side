@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ManageItems = () => {
     const [tvs, setTvs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tv')
+        fetch('https://aqueous-ravine-97743.herokuapp.com/tv')
             .then(res => res.json())
             .then(data => setTvs(data))
     }, [])
@@ -13,7 +13,7 @@ const ManageItems = () => {
         const proceed = window.confirm('Are you sure to delete?')
         if (proceed) {
             console.log(id);
-            const url = `http://localhost:5000/tv/${id}`;
+            const url = `https://aqueous-ravine-97743.herokuapp.com/tv/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

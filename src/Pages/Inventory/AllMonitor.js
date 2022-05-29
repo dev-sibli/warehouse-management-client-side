@@ -5,7 +5,7 @@ const AllMonitor = () => {
     const [monitors, setMonitors] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tv')
+        fetch('https://aqueous-ravine-97743.herokuapp.com/tv')
             .then(res => res.json())
             .then(data => setMonitors(data))
     }, [])

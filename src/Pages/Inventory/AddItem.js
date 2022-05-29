@@ -14,7 +14,7 @@ const AddItem = () => {
             quantity: parseInt(data.quantity),
             supplier: data.supplier
         }
-        fetch('http://localhost:5000/tv', {
+        fetch('https://aqueous-ravine-97743.herokuapp.com/tv', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

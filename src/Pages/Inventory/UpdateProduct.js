@@ -6,7 +6,7 @@ const UpdateProduct = () => {
     const { id } = useParams();
     const [products, setProducts] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/tv/${id}`;
+        const url = `https://aqueous-ravine-97743.herokuapp.com/tv/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data));
@@ -18,7 +18,7 @@ const UpdateProduct = () => {
 
         const quantityUpdate = { quantity }
 
-        const url = `http://localhost:5000/tv/${id}`;
+        const url = `https://aqueous-ravine-97743.herokuapp.com/tv/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
