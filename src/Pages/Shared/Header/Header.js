@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
@@ -12,18 +11,15 @@ const Header = () => {
         <>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/blogs">Blogs</Link></li>
-            <li><Link to="/manageItems">Manage Items</Link></li>
-            <li><Link to="/addItem">Add Item</Link></li>
-            <li><Link to="/myItems">My items</Link></li>
-
             {
                 user &&
                 <ul className='lg:flex'>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><p>{user?.displayName}</p></li>
+                    <li><Link to="/manageItems">Manage Inventories</Link></li>
+                    <li><Link to="/addItem">Add Item</Link></li>
+                    <li><Link to="/myItems">My items</Link></li>
                 </ul>
             }
-            <li>{user ? <button onClick={() => signOut(auth)} className="btn btn-ghost" >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+            <li>{user ? <button onClick={() => signOut(auth)} className="btn btn-ghost" >Logout</button> : <Link to="/login">Login</Link>}</li>
         </>
 
     return (
@@ -37,9 +33,9 @@ const Header = () => {
                         {headerItem}
                     </ul>
                 </div>
-                <Link className='btn btn-ghost normal-case text-xl ' to="/">Tv Star</Link>
+                <Link className='btn btn-ghost normal-case text-xl' to="/">Tv Star</Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {headerItem}
                 </ul>

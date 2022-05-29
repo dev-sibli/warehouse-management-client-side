@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ManageItems = () => {
     const [tvs, setTvs] = useState([]);
-
     useEffect(() => {
         fetch('http://localhost:5000/tv')
             .then(res => res.json())
@@ -28,10 +28,6 @@ const ManageItems = () => {
         }
     }
 
-    const handleInventory = id => {
-        console.log(id);
-    }
-
     return (
         <div className="overflow-x-auto">
             <table className="table w-full">
@@ -42,7 +38,6 @@ const ManageItems = () => {
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Supplier</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -54,9 +49,6 @@ const ManageItems = () => {
                             <td>{tv.quantity}</td>
                             <td>{tv.supplier}</td>
                             <td>
-                                <button onClick={() => handleInventory(tv._id)} className='btn'>Edit</button>
-                            </td>
-                            <td>
                                 <button onClick={() => handleDelete(tv._id)} className='btn'>Delete</button>
                             </td>
 
@@ -64,6 +56,11 @@ const ManageItems = () => {
                     }
                 </tbody>
             </table>
+            <Link to="/addItem">
+                <button class="btn btn-wide my-3 text-white font-bold" type="button">
+                    Add new item
+                </button>
+            </Link>
         </div>
     );
 };

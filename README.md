@@ -15,7 +15,7 @@ Live Website: https://tv-star-management.web.app/
 ### Client Side
 
 - React
-- React bootstrap
+- React tailwind CSS
 - React firebase hooks
 - React router dom
 - React toastify

@@ -30,7 +30,6 @@ const AddItem = () => {
                 else {
                     toast.error('Failed to add the Product');
                 }
-                console.log(inserted);
             })
     }
     return (
@@ -114,6 +113,7 @@ const AddItem = () => {
                 </div>
 
             </form>
+
         </div>
     );
 };

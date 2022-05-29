@@ -63,11 +63,12 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" placeholder="Enter Your Password" required />
                 </Form.Group>
-                <Button className='w-100 mb-3' variant="primary" type="submit">
+                {errorLog}
+                <Button className='w-100 my-3' variant="primary" type="submit">
                     Login
                 </Button>
             </Form>
-                {errorLog}
+
                 <p>New to TV Star? <Link to="/register" className='text-primary text-decoration-none'>Please Register</Link></p>
                 <p>Forget Password? <button className='btn btn-link text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
                 <SocialLogin></SocialLogin></div>
